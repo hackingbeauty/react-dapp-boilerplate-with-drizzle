@@ -1,10 +1,27 @@
 import React, { Component } from 'react'
+import {DrizzleContext} from "drizzle-react";
+import WriteData from './components/WriteData';
 
 class HomeView extends Component {
   render() {
-    return (
-      <div className="container">Welcome to React DApp Boilerplate with Drizzle!</div>
-    )
+    return (    
+      <DrizzleContext.Consumer>
+        {drizzleContext => {
+         const {drizzle, drizzleState, initialized } = drizzleContext;
+          
+          if (!initialized) {
+            return "Loading...";
+          
+        }
+    
+        return(
+            <div className = "App">
+              <WriteData drizzle ={drizzle} drizzleState = {drizzleState} />
+            </div>
+        );
+      }}
+    </DrizzleContext.Consumer>
+    );
   }
 }
 
