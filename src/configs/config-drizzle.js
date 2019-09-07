@@ -1,14 +1,14 @@
+import AmazingDapp from "./contracts/AmazingDapp.json";
+
 const drizzleOptions = {
   web3: {
     block: false,
     fallback: {
       type: 'ws',
-      url: 'ws://127.0.0.1:8545'
+      url: 'ws://127.0.0.1:7545'
     }
   },
-  contracts: [
-    /* Specifiy your Smart Contract's json file here] */
-  ],
+  contracts: [AmazingDapp],
   events: {
   },
   polls: {
